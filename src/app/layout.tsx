@@ -1,17 +1,21 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Playfair_Display, Raleway } from 'next/font/google'
 import "./globals.css";
 import Header from "@/components/header/header";
+import Footer from "@/components/footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  style: ['normal', 'italic'],
+  variable: '--font-playfair',
+})
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const raleway = Raleway({
+  subsets: ['latin'],
+  weight: ['300', '400'],
+  variable: '--font-raleway',
+})
 
 export const metadata: Metadata = {
   title: "Pixellens",
@@ -24,13 +28,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${playfair.variable} ${raleway.variable} antialiased`}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`font-body`}
       >
         <div>
           <Header/>
+          <div className="bg-[#F9F6EE] pb-10">
           {children}
+          </div>
+          <Footer/>
         </div>
       </body>
     </html>
