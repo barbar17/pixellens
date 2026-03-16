@@ -11,7 +11,7 @@ const Footer = () => {
       <div className='flex flex-col h-full w-1/2 items-start justify-between p-8'>
         <div className='flex flex-row gap-2'>
           <h3 className='text-4xl font-bold font-heading border-r-2 pr-2'>PixelLens</h3>
-          <span className='self-end'>Capture memories through the lens to its pixel.</span>
+          <span className='self-end'>Memories through the lens, preserved to its pixel.</span>
         </div>
 
         <ul>
