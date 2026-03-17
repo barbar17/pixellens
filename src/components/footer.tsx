@@ -43,7 +43,7 @@ const Footer = () => {
                 item.children.map((child) => (
                   <li key={child.href}>
                     <Link
-                      href={child.href}
+                      href={`${item.href}/${child.href}`}
                       className="font-heading text-[16px] font-light text-[rgba(245,240,232,0.55)] tracking-[0.04em] hover:text-[#f5f0e8] hover:tracking-[0.08em] transition-all duration-300"
                     >
                       {child.title}
@@ -61,6 +61,14 @@ const Footer = () => {
                 </li>
               )
             )}
+            <li>
+              <Link
+                href={"/contact"}
+                className="font-heading text-[16px] font-light text-[rgba(245,240,232,0.55)] tracking-[0.04em] hover:text-[#f5f0e8] hover:tracking-[0.08em] transition-all duration-300"
+              >
+                Contact
+              </Link>
+            </li>
           </ul>
         </div>
         <div>

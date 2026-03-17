@@ -38,13 +38,13 @@ export default function VideographySection() {
   return (
     <section className="w-full py-24">
       <div className="text-center mb-12">
-        <p className="text-gold font-['Montserrat'] text-[11px] tracking-[0.2em] uppercase font-light mb-4">
+        <p className="text-[12px] tracking-[0.35em] uppercase text-gold mb-5 font-light">
           Our Services
         </p>
-        <h2 className="font-['Cormorant_Garamond'] text-[clamp(36px,5vw,58px)] font-light text-[#f5f0e8] leading-none mb-3">
+        <h2 className="font-heading text-4xl md:text-5xl font-light text-[#f5f0e8] mb-3 text-center">
           Cinematic Storytelling
         </h2>
-        <p className="font-['Cormorant_Garamond'] italic text-[clamp(15px,1.8vw,18px)] font-light text-[rgba(245,240,232,0.65)]">
+        <p className="font-heading text-lg italic font-light text-neutral-500 tracking-wide">
           Life moves. We make it last.
         </p>
         <div className="flex items-center justify-center mt-5">
@@ -54,7 +54,7 @@ export default function VideographySection() {
         </div>
       </div>
 
-      <div className="grid grid-cols-4 gap-0.5 max-w-300 mx-auto px-10 max-md:grid-cols-2 max-md:px-4">
+      <div className="grid grid-cols-4 gap-0.5 max-w-7xl mx-auto px-10">
         {videoCategoriesMock.map(vid => (
           <VideographyCard key={vid.alt} href={vid.href} src={vid.src} alt={vid.alt} title={vid.title} duration={vid.duration}/>
         ))}

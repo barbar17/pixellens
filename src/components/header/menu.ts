@@ -12,5 +12,4 @@ const servicesList: MenuInterface[] = [
 export const menuList: MenuInterface[] = [
     {title: "Services", href: "services", children: servicesList},
     {title: "Our Journey", href: "journey"},
-    {title: "About", href: "about"},
 ]

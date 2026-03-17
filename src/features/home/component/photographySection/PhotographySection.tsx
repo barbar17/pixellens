@@ -20,7 +20,11 @@ const PhotographySection = () => {
         <p className="font-heading text-lg italic font-light text-neutral-500 tracking-wide">
           Your legacy, framed in perfection.
         </p>
-        <div className="w-14 h-px bg-gold opacity-40 mt-12" />
+        <div className="flex items-center justify-center mt-5">
+          <span className="block w-10 h-px bg-gold opacity-50" />
+          <span className="text-gold text-[10px] opacity-70 mx-2">◆</span>
+          <span className="block w-10 h-px bg-gold opacity-50" />
+        </div>
       </div>
 
       <div className="grid grid-cols-4 gap-0.5 max-w-7xl mx-auto px-10">
