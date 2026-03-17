@@ -12,12 +12,6 @@ export default function Home() {
           <div className="absolute inset-0 bg-[url(/hero.jpg)] bg-cover bg-center bg-fixed brightness-55 saturate-60" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(0,0,0,0.7)_100%)]" />
           <div className="absolute inset-0 bg-linear-to-t from-black/85 via-black/10 to-black/40" />
-          <span className="absolute top-7 left-9 text-[11px] tracking-[0.2em] text-gold/50 font-light hidden md:block">
-            Fine Art Photography & Cinematography
-          </span>
-          <span className="absolute top-7 right-9 text-[11px] tracking-[0.2em] text-gold/50 font-light hidden md:block">
-            Lampung, Indonesia
-          </span>
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
             <p className="text-[11px] tracking-[0.4em] uppercase text-gold font-light mb-5">
               PixelLens Studio
@@ -51,7 +45,7 @@ export default function Home() {
           </div>
         </section>
       </div>
-      
+
       <PhotographySection />
 
       <VideographySection />

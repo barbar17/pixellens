@@ -45,7 +45,7 @@ export default function CtaBanner() {
         </div>
       </div>
 
-      <p className="absolute bottom-7 font-heading text-[9px] tracking-[0.2em] uppercase text-[rgba(245,240,232,0.18)]">
+      <p className="absolute bottom-7 font-heading text-[9px] tracking-[0.2em] uppercase text-gold">
         Lampung, Indonesia · Est. 2021
       </p>
 

@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --color-gold: #D2AF26;
+  --color-gold: #d2af26;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-heading: var(--font-playfair), serif;
@@ -50,8 +50,12 @@
   --animate-marquee-vertical: marquee-vertical 8s linear infinite;
 
   @keyframes marquee-vertical {
-    0%   { transform: translateY(0); }
-    100% { transform: translateY(-50%); }
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-50%);
+    }
   }
 }
 
@@ -128,10 +132,39 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    overflow-y: scroll;
+  }
   body {
     @apply bg-background text-foreground;
+    margin-right: 0 !important;
   }
 }
 
-.vid-rule { clip-path: inset(0 100% 0 0); transition: clip-path 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-.group:hover .vid-rule { clip-path: inset(0 0% 0 0); }
+.vid-rule {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.group:hover .vid-rule {
+  clip-path: inset(0 0% 0 0);
+}
+
+/* For Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 9999px;
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #888 transparent;
+}

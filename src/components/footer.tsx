@@ -14,7 +14,7 @@ const Footer = () => {
           <h3 className="font-heading text-[32px] font-light text-[#f5f0e8] tracking-[0.02em]">
             Pixel<span className="text-gold">Lens</span>
           </h3>
-          <p className="font-heading italic font-light text-[14px] text-[rgba(245,240,232,0.45)] mt-2.5 leading-relaxed max-w-[260px]">
+          <p className="font-heading italic font-light text-[14px] text-[rgba(245,240,232,0.45)] mt-2.5 leading-relaxed max-w-65">
             Memories through the lens,<br />preserved to its pixel.
           </p>
 
