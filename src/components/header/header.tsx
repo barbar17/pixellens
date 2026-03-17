@@ -28,13 +28,10 @@ const Header = () => {
         }`}
     >
       <div className="h-full max-w-6xl mx-auto px-10 flex items-center justify-between">
-
-        {/* Logo */}
         <Link href="/" className="font-heading text-xl font-light tracking-[0.12em] text-[#f5f0e8]">
           Pixel<span className="text-gold">Lens</span>
         </Link>
 
-        {/* Nav */}
         <NavigationMenu>
           <NavigationMenuList className="flex items-center gap-1">
             {menuList.map(menu =>
@@ -64,14 +61,13 @@ const Header = () => {
                       transition-colors duration-250 [&>svg]:hidden
                       after:content-[''] after:inline-block after:w-1.5 after:h-1.5
                       after:border-r after:border-b after:border-current
-                      after:rotate-45 after:ml-2 after:translate-y-0.5
+                      after:rotate-45 after:ml-2 after:self-center
                       data-[state=open]:after:rotate-[-135deg]
                       after:transition-transform after:duration-250"
                   >
                     {menu.title}
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    {/* Dropdown */}
                     <div className="relative min-w-50 bg-[rgba(10,10,10,0.97)] border border-gold/20 py-2
                       before:absolute before:top-0 before:left-0 before:right-0 before:h-px
                       before:bg-linear-to-r before:from-transparent before:via-gold before:to-transparent">
@@ -97,7 +93,6 @@ const Header = () => {
               )
             )}
 
-            {/* CTA */}
             <li>
               <Link
                 href="/contact"

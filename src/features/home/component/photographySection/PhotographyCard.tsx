@@ -1,15 +1,8 @@
 "use client";
 import Image from "next/image";
+import { TPhotographyCard } from "../../types/PhotographyCardTypes";
 
-interface Props {
-  src: string;
-  alt: string;
-  title: string;
-  index: string;
-  href?: string;
-}
-
-const PhotographyCard = ({ src, alt, title, index, href = "#" }: Props) => {
+const PhotographyCard = ({ src, alt, title, index, href = "#" }: TPhotographyCard) => {
   return (
     <a href={href} className="relative overflow-hidden cursor-pointer aspect-2/3 block group">
       <Image src={src} alt={alt} fill className="object-cover transition-all duration-700 ease-out brightness-65 saturate-50 group-hover:scale-105 group-hover:brightness-35 group-hover:saturate-30" />
