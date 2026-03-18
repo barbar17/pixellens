@@ -1,4 +1,3 @@
-import { Dispatch, SetStateAction } from "react"
 import { Popover, PopoverTrigger, PopoverContent } from "./ui/popover"
 import { Calendar } from "./ui/calendar"
 import { ChevronDownIcon } from "lucide-react"
@@ -11,7 +10,7 @@ const DatePicker = ({
   setDate,
 }: {
   date: Date | undefined,
-  setDate: Dispatch<SetStateAction<Date | undefined>>
+  setDate: (date: Date | undefined) => void
 }) => {
   return (
     <Popover>
@@ -21,7 +20,7 @@ const DatePicker = ({
           className={cn(
             "w-full flex items-center justify-between cursor-pointer",
             "bg-transparent border-b border-[rgba(245,240,232,0.12)] pb-2.5 pt-2",
-            "font-['Montserrat'] text-[13px] font-light outline-none",
+            "font-heading text-[13px] font-light outline-none",
             "hover:border-gold/60 focus:border-gold/60 transition-colors duration-300",
             date ? "text-[#f5f0e8]" : "text-[rgba(245,240,232,0.25)]"
           )}
