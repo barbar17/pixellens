@@ -1,3 +1,4 @@
+import GoldLine from "@/components/GoldLine";
 import AboutTeaser from "@/features/home/component/aboutTeaserSection/AboutTeaserSection";
 import CtaBanner from "@/features/home/component/ctaBannerSection/CtaBannerSection";
 import PhotographySection from "@/features/home/component/photographySection/PhotographySection";
@@ -18,21 +19,18 @@ export default function Home() {
             <h1 className="font-heading text-5xl md:text-7xl font-light text-[#f5f0e8] leading-tight tracking-wide mb-0">
               Capture the<br />Moment Forever
             </h1>
-            <div className="flex items-center gap-4 my-6">
-              <div className="w-12 h-px bg-gold opacity-60" />
-              <div className="w-1.5 h-1.5 bg-gold rotate-45 opacity-80" />
-              <div className="w-12 h-px bg-gold opacity-60" />
-            </div>
+            
+            <GoldLine/>
 
             <p className="font-heading text-sm md:text-base italic font-light text-[#c8c0b0] tracking-wide mb-10">
               Memories through the lens, preserved to its pixel.
             </p>
 
             <div className="flex items-center gap-6">
-              <a href="/portfolio" className="text-[10px] tracking-[0.25em] uppercase font-medium bg-gold text-black px-8 py-3.5 hover:bg-gold/80 transition-colors duration-300">
+              <a href="/portfolio" className="text-[9px] md:text-[10px] tracking-[0.25em] uppercase font-medium bg-gold text-black px-4 py-3 md:px-8 md:py-3.5 hover:bg-gold/80 transition-colors duration-300">
                 View Our Work
               </a>
-              <a href="/contact" className="text-[10px] tracking-[0.25em] uppercase font-light text-[#f5f0e8] border border-white/30 px-8 py-3.5 hover:border-gold hover:text-gold transition-all duration-300">
+              <a href="/contact" className="text-[9px] md:text-[10px] tracking-[0.25em] uppercase font-light text-[#f5f0e8] border border-white/30 px-4 py-3 md:px-8 md:py-3.5 hover:border-gold hover:text-gold transition-all duration-300">
                 Book a Session
               </a>
             </div>
