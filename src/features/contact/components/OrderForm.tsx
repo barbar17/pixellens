@@ -39,7 +39,7 @@ const buildOrderMessage = (form: TOrderForm) => {
   return text;
 }
 
-const OrderForm = () => {
+const OrderForm = ({ className }: { className: string }) => {
   const [form, setForm] = useState<TOrderForm>(orderFormDefault);
 
   const onSubmit = () => {
@@ -48,7 +48,7 @@ const OrderForm = () => {
   }
 
   return (
-    <div className="bg-black py-14 pl-14 max-lg:px-0 max-lg:pb-10">
+    <div className={`bg-black py-14 pl-14 max-lg:px-0 max-lg:pb-10 ${className}`}>
       <p className="font-heading text-[22px] font-light text-[#f5f0e8] mb-8 tracking-[0.02em]">
         Tell us about your moment
       </p>

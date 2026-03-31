@@ -6,9 +6,9 @@ export default function Contact() {
   return (
     <main className="min-h-screen font-heading">
       <ContactHero/>
-      <div className="grid grid-cols-[1fr_1.1fr] gap-px max-w-300 mx-auto mb-24 mt-16 max-lg:grid-cols-1">
-        <ContactDisplay/>
-        <OrderForm/>
+      <div className="flex flex-col-reverse px-10 md:px-0 md:flex-row w-full flex-1 gap-12px max-w-300 mx-auto mb-24 mt-16">
+        <ContactDisplay className="flex-1"/>
+        <OrderForm className="flex-1"/>
       </div>
     </main>
   );

@@ -1,3 +1,4 @@
+"use client";
 import { GoChevronRight } from "react-icons/go";
 import { menuList } from "./menu";
 import Link from "next/link";
@@ -9,11 +10,14 @@ import {
 } from '../ui/navigation-menu';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "../ui/collapsible";
 import { Button } from "../ui/button";
+import { useState } from "react";
 
 export default function MobileNav({ isActive, className }: { isActive: (menu: string) => boolean, className: string }) {
+  const [show, setShow] = useState<boolean>(false);
+
   return (
     <div className={className}>
-      <Sheet>
+      <Sheet open={show} onOpenChange={setShow}>
         <SheetTrigger asChild>
           <CiMenuFries className="text-white" size={26} />
         </SheetTrigger>
@@ -29,7 +33,7 @@ export default function MobileNav({ isActive, className }: { isActive: (menu: st
             <NavigationMenu>
               <NavigationMenuList className="flex flex-col items-start content-start gap-1">
                 <li>
-                  <Link href="/" className={`relative text-[11px] tracking-[0.2em] uppercase font-light px-3.5 py-2
+                  <Link href="/" onClick={() => setShow(false)} className={`relative text-[11px] tracking-[0.2em] uppercase font-light px-3.5 py-2
                         transition-colors duration-250
                         ${isActive(`/`)
                       ? 'text-gold after:absolute after:bottom-0 after:left-3.5 after:right-3.5 after:h-px after:bg-gold'
@@ -45,6 +49,7 @@ export default function MobileNav({ isActive, className }: { isActive: (menu: st
                       <NavigationMenuLink asChild>
                         <Link
                           href={`/${menu.href}`}
+                          onClick={() => setShow(false)}
                           className={`relative text-[11px] tracking-[0.2em] uppercase font-light px-3.5 py-2
                         transition-colors duration-250
                         ${isActive(`/${menu.href}`)
@@ -71,6 +76,7 @@ export default function MobileNav({ isActive, className }: { isActive: (menu: st
                         {menu.children.map(child => (
                           <Link
                             key={child.href}
+                            onClick={() => setShow(false)}
                             href={`/${menu.href}/${child.href}`}
                             className={`group flex items-center gap-3 py-3
                             text-[11px] tracking-[0.18em] uppercase font-light
@@ -90,7 +96,7 @@ export default function MobileNav({ isActive, className }: { isActive: (menu: st
                 )}
 
                 <li>
-                  <Link href="/contact" className={`relative text-[11px] tracking-[0.2em] uppercase font-light px-3.5 py-2
+                  <Link href="/contact" onClick={() => setShow(false)} className={`relative text-[11px] tracking-[0.2em] uppercase font-light px-3.5 py-2
                         transition-colors duration-250
                         ${isActive(`/contact`)
                       ? 'text-gold after:absolute after:bottom-0 after:left-3.5 after:right-3.5 after:h-px after:bg-gold'
