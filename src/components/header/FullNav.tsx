@@ -34,12 +34,7 @@ const FullNav = ({ isActive, className }: { isActive: (menu: string) => boolean,
                       bg-transparent hover:bg-transparent focus:bg-transparent
                       data-[state=open]:bg-transparent
                       text-white/70 hover:text-gold data-[state=open]:text-gold
-                      transition-colors duration-250 [&>svg]:hidden
-                      after:content-[''] after:inline-block after:w-1.5 after:h-1.5
-                      after:border-r after:border-b after:border-current
-                      after:rotate-45 after:ml-2 after:self-center
-                      data-[state=open]:after:rotate-[-135deg]
-                      after:transition-transform after:duration-250"
+                      transition-colors duration-250"
               >
                 {menu.title}
               </NavigationMenuTrigger>

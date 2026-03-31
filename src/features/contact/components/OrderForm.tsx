@@ -142,7 +142,7 @@ const OrderForm = ({ className }: { className: string }) => {
             type="submit"
             className="flex cursor-pointer items-center gap-2.5 font-heading text-[10px] tracking-[0.28em] uppercase bg-gold text-black px-8 py-4 font-medium hover:bg-[#caa84e] hover:tracking-[0.34em] transition-all duration-300"
           >
-            <FaWhatsapp size={14} />
+            <FaWhatsapp size={22} />
             Send via WhatsApp
           </button>
           <p className="text-[10px] text-[rgba(245,240,232,0.25)] tracking-[0.06em] leading-[1.6]">

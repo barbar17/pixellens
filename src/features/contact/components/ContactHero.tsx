@@ -1,18 +1,18 @@
+import GoldLine from "@/components/GoldLine"
+
 const ContactHero = () => {
   return (
     <div className="relative text-center px-10 pt-30 pb-20">
-      <p className="text-[9px] md:text-[10px] tracking-[0.28em] uppercase text-gold font-normal mb-5">
+      <p className="text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-gold font-normal mb-5">
         Work With Us
       </p>
       <h1 className="font-heading text-4xl md:text-6xl font-light text-[#f5f0e8] leading-[1.08] mb-4">
         Let's create something<br />
         <em className="italic text-[rgba(245,240,232,0.55)]">worth remembering.</em>
       </h1>
-      <div className="flex items-center justify-center gap-2.5 my-6">
-        <span className="block w-9 h-px bg-gold opacity-40" />
-        <span className="text-gold text-[9px] opacity-60">◆</span>
-        <span className="block w-9 h-px bg-gold opacity-40" />
-      </div>
+
+      <GoldLine />
+
       <p className="font-heading italic font-light text-[14px] md:text-[17px] text-[rgba(245,240,232,0.45)] tracking-[0.03em]">
         Tell us about your story — we'll take care of the rest.
       </p>

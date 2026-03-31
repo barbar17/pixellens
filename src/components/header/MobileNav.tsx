@@ -69,7 +69,7 @@ export default function MobileNav({ isActive, className }: { isActive: (menu: st
                           className="text-white/70 relative text-[11px] tracking-[0.2em] uppercase font-light px-3.5 py-2
                         transition-colors duration-250 w-full justify-start transition-none group">
                           <span className="pl-0.5">{menu.title}</span>
-                          <GoChevronRight className="text-white group-data-[state=open]:rotate-90" />
+                          <GoChevronRight className="text-white group-data-[state=open]:rotate-90 transition-all duration-200" />
                         </Button>
                       </CollapsibleTrigger>
                       <CollapsibleContent className="overflow-hidden data-[state=open]:animate-collapsible-down data-[state=closed]:animate-collapsible-up">

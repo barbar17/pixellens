@@ -45,7 +45,7 @@ export default function VideographySection() {
         <h2 className="font-heading text-4xl md:text-5xl font-light text-[#f5f0e8] mb-3 text-center">
           Cinematic Storytelling
         </h2>
-        <p className="font-heading text-base md:text-lg italic font-light text-neutral-500 tracking-wide">
+        <p className="font-heading text-base scale md:text-lg italic font-light text-neutral-500 tracking-wide">
           Life moves. We make it last.
         </p>
         <GoldLine scale='75' margin='mt-5'/>
