@@ -33,11 +33,11 @@ export default function RootLayout({
         className={`font-body`}
       >
         <div>
-          <Header/>
+          <Header />
           <div className="bg-black pb-10 min-h-dvh">
-          {children}
+            {children}
           </div>
-          <Footer/>
+          <Footer />
         </div>
       </body>
     </html>

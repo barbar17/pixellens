@@ -1,6 +1,5 @@
 import AboutTeaser from "@/features/home/component/aboutTeaserSection/AboutTeaserSection";
 import CtaBanner from "@/features/home/component/ctaBannerSection/CtaBannerSection";
-import PhotographyCard from "@/features/home/component/photographySection/PhotographyCard";
 import PhotographySection from "@/features/home/component/photographySection/PhotographySection";
 import VideographySection from "@/features/home/component/videographySection/VideographySection";
 
@@ -13,7 +12,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(0,0,0,0.7)_100%)]" />
           <div className="absolute inset-0 bg-linear-to-t from-black/85 via-black/10 to-black/40" />
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-            <p className="text-[11px] tracking-[0.4em] uppercase text-gold font-light mb-5">
+            <p className="text-[10px] md:text-[11px] tracking-[0.4em] uppercase text-gold font-light mb-5">
               PixelLens Studio
             </p>
             <h1 className="font-heading text-5xl md:text-7xl font-light text-[#f5f0e8] leading-tight tracking-wide mb-0">
@@ -25,7 +24,7 @@ export default function Home() {
               <div className="w-12 h-px bg-gold opacity-60" />
             </div>
 
-            <p className="font-heading text-base italic font-light text-[#c8c0b0] tracking-wide mb-10">
+            <p className="font-heading text-sm md:text-base italic font-light text-[#c8c0b0] tracking-wide mb-10">
               Memories through the lens, preserved to its pixel.
             </p>
 
