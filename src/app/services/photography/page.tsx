@@ -105,7 +105,7 @@ export default function PhotographyPage() {
             <span className="font-heading text-[13px] font-light text-gold/40 tracking-[0.08em]">{num}</span>
             <h2 className="font-heading text-[32px] font-light text-[#f5f0e8] tracking-[0.02em]">{name}</h2>
             <div className="flex-1 h-px bg-linear-to-r from-gold/20 to-transparent" />
-            <span className="font-heading text-[9px] tracking-[0.2em] uppercase text-gold/50 border border-gold/15 px-2.5 py-1.5">
+            <span className="font-heading text-xs tracking-[0.2em] uppercase text-gold/50 border border-gold/15 px-2.5 py-1.5">
               Photography
             </span>
           </div>
@@ -135,7 +135,7 @@ export default function PhotographyPage() {
             </div>
 
             <div className="px-12 pt-9 pb-12 flex flex-col max-lg:px-8">
-              <p className="font-heading text-[9px] tracking-[0.22em] uppercase text-gold/60 font-medium mb-5">Packages</p>
+              <p className="font-heading text-sm tracking-[0.22em] uppercase text-gold/60 font-medium mb-5">Packages</p>
 
               {packages.map(({ name: pkgName, price, includes }) => (
                 <div
