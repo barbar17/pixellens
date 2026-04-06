@@ -8,7 +8,7 @@ import { format } from "date-fns"
 import { id } from "date-fns/locale"
 
 
-// form -> nama, instagram, alamat, tipe acara, tanggal acara, paket (options)
+// form -> nama, instagram, alamat, tipe acara, tanggal acara, paket (options) https://bit.ly/pixellensform
 const services = [
   "Wedding",
   "Pre-Wedding",
