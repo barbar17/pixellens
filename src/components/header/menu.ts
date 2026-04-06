@@ -4,12 +4,12 @@ interface MenuInterface {
     children?: MenuInterface[],
 }
 
-const servicesList: MenuInterface[] = [
-    {title: "Photography", href: "photography"},
-    {title: "Videography", href: "videography"},
-]
+// const servicesList: MenuInterface[] = [
+//     {title: "Photography", href: "photography"},
+//     {title: "Videography", href: "videography"},
+// ]
 
 export const menuList: MenuInterface[] = [
-    {title: "Services", href: "services", children: servicesList},
+    {title: "Package", href: "package"},
     {title: "Our Journey", href: "journey"},
 ]

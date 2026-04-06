@@ -72,7 +72,7 @@ const FullNav = ({ isActive, className }: { isActive: (menu: string) => boolean,
                   hover:bg-gold hover:text-black hover:border-gold
                   transition-all duration-250"
           >
-            Work With Us
+            Booking Now
           </Link>
         </li>
       </NavigationMenuList>

@@ -79,7 +79,7 @@ const categories = [
   },
 ];
 
-export default function PhotographyPage() {
+export default function Package() {
   return (
     <main className="bg-[#0a0a0a] min-h-screen">
       <div className="relative text-center px-10 pt-27.5 pb-20">

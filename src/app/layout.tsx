@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Raleway } from 'next/font/google'
 import "./globals.css";
-import Header from "@/components/header/Header";
-import Footer from "@/components/Footer";
+
+import Footer from "@/components/footer";
+import Header from "@/components/header/header";
 
 const playfair = Playfair_Display({
   subsets: ['latin'],

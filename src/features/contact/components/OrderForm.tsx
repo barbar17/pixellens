@@ -7,6 +7,8 @@ import { TOrderForm } from "../types/OrderFormTypes";
 import { format } from "date-fns"
 import { id } from "date-fns/locale"
 
+
+// form -> nama, instagram, alamat, tipe acara, tanggal acara, paket (options)
 const services = [
   "Wedding",
   "Pre-Wedding",

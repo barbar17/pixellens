@@ -36,7 +36,7 @@ const ContactDisplay = ({ className }: { className: string }) => {
         </Link>
       </div>
 
-      <div>
+      {/* <div>
         <p className="text-[9px] tracking-[0.24em] uppercase text-gold font-medium mb-3.5">Business Hours</p>
         <div className="flex flex-col gap-1.5">
           {hours.map(({ day, time }) => (
@@ -47,7 +47,7 @@ const ContactDisplay = ({ className }: { className: string }) => {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
 
       <div>
         <p className="text-[9px] tracking-[0.24em] uppercase text-gold font-medium mb-3.5">Follow Our Work</p>

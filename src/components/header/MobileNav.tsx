@@ -102,7 +102,7 @@ export default function MobileNav({ isActive, className }: { isActive: (menu: st
                       ? 'text-gold after:absolute after:bottom-0 after:left-3.5 after:right-3.5 after:h-px after:bg-gold'
                       : 'text-white/70'
                     }`}>
-                    Work With Us
+                    Booking Now
                   </Link>
                 </li>
               </NavigationMenuList>
