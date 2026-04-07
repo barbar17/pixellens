@@ -9,7 +9,7 @@ import { id } from "date-fns/locale"
 
 
 // form -> nama, instagram, alamat, tipe acara, tanggal acara, paket (options) https://bit.ly/pixellensform
-const services = [
+const eventType = [
   "Wedding",
   "Pre-Wedding",
   "Graduation",
@@ -17,11 +17,19 @@ const services = [
   "Other",
 ];
 
+const packageSelection = [
+  "Silver",
+  "Gold",
+  "Basic",
+]
+
 const orderFormDefault: TOrderForm = {
   name: "",
+  instagram: "",
   date: new Date(),
   location: "",
   event: "",
+  package: "",
   desc: "",
 }
 
@@ -77,6 +85,21 @@ const OrderForm = ({ className }: { className: string }) => {
             onChange={(e) => setForm({ ...form, name: e.currentTarget.value })}
           />
         </div>
+        <div>
+          <label className="block text-[9px] tracking-[0.22em] uppercase text-gold font-medium mb-2">
+            Your Instagram
+          </label>
+          <input
+            autoComplete="off"
+            type="text"
+            required
+            name="instagram"
+            placeholder={"Ex: jhondoe"}
+            className="w-full bg-transparent border-b border-[rgba(245,240,232,0.12)] pb-2.5 pt-2 text-[13px] font-light text-[#f5f0e8] placeholder-[rgba(245,240,232,0.25)] outline-none focus:border-gold/60 transition-colors duration-300"
+            value={form.instagram}
+            onChange={(e) => setForm({ ...form, instagram: e.currentTarget.value })}
+          />
+        </div>
 
         <div>
           <label className="block text-[9px] tracking-[0.22em] uppercase text-gold font-medium mb-2">
@@ -110,13 +133,36 @@ const OrderForm = ({ className }: { className: string }) => {
             value={form.event || undefined}
             onValueChange={(val) => setForm({ ...form, event: val })}
           >
-            <SelectTrigger className="w-full bg-transparent border-0 border-b border-[rgba(245,240,232,0.12)] rounded-none px-0 pb-2.5 pt-2 font-['Montserrat'] text-[13px] font-light text-[#f5f0e8] shadow-none focus:ring-0 focus:border-gold/60 hover:border-gold/60 transition-colors duration-300 [&>span]:text-[rgba(245,240,232,0.25)] data-placeholder:text-[rgba(245,240,232,0.25)]">
+            <SelectTrigger className="w-full bg-transparent border-0 border-b border-[rgba(245,240,232,0.12)] rounded-none px-0 pb-2.5 pt-2 font-heading text-[13px] font-light text-[#f5f0e8] shadow-none focus:ring-0 focus:border-gold/60 hover:border-gold/60 transition-colors duration-300 [&>span]:text-[rgba(245,240,232,0.25)] data-placeholder:text-[rgba(245,240,232,0.25)]">
               <SelectValue placeholder="Select a Service" className="text-[#f5f0e8] data-placeholder:text-[rgba(245,240,232,0.25)]" />
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
                 <SelectLabel>Select a service</SelectLabel>
-                {services.map((s) => (
+                {eventType.map((s) => (
+                  <SelectItem key={s} value={s} className="bg-white text-black">{s}</SelectItem>
+                ))}
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div>
+          <label className="block text-[9px] tracking-[0.22em] uppercase text-gold font-medium mb-2">
+            Package
+          </label>
+          <Select
+            required
+            value={form.package || undefined}
+            onValueChange={(val) => setForm({ ...form, package: val })}
+          >
+            <SelectTrigger className="w-full bg-transparent border-0 border-b border-[rgba(245,240,232,0.12)] rounded-none px-0 pb-2.5 pt-2 font-heading text-[13px] font-light text-[#f5f0e8] shadow-none focus:ring-0 focus:border-gold/60 hover:border-gold/60 transition-colors duration-300 [&>span]:text-[rgba(245,240,232,0.25)] data-placeholder:text-[rgba(245,240,232,0.25)]">
+              <SelectValue placeholder="Select a Package" className="text-[#f5f0e8] data-placeholder:text-[rgba(245,240,232,0.25)]" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectLabel>Select a package</SelectLabel>
+                {packageSelection.map((s) => (
                   <SelectItem key={s} value={s} className="bg-white text-black">{s}</SelectItem>
                 ))}
               </SelectGroup>

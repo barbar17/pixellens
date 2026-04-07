@@ -2,10 +2,10 @@ import GoldLine from '@/components/GoldLine'
 import PhotographyCard from './PhotographyCard'
 
 const photoCardMock = [
-  { src: "/home/photography/1.jpg", alt: "graduation", title: "Graduation", href: "/" },
-  { src: "/home/photography/2.jpg", alt: "wedding", title: "Wedding", href: "/" },
-  { src: "/home/photography/3.jpg", alt: "pre-wedding", title: "Pre Wedding", href: "/" },
-  { src: "/home/photography/4.jpg", alt: "others", title: "Others", href: "/" },
+  { src: "/home/photography/2.jpg", alt: "wedding", title: "Wedding", href: "/package#Wedding" },
+  { src: "/home/photography/3.jpg", alt: "pre-wedding", title: "Pre Wedding", href: "/package#Pre-Wedding" },
+  { src: "/home/photography/1.jpg", alt: "graduation", title: "Graduation", href: "/package#Graduation" },
+  { src: "/home/photography/4.jpg", alt: "others", title: "Others", href: "/package#Others" },
 ]
 
 const PhotographySection = () => {
