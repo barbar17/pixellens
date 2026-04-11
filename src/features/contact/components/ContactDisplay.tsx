@@ -1,28 +1,38 @@
-import { FaWhatsapp } from "react-icons/fa";
 import Link from "next/link";
-import { RiInstagramFill } from "react-icons/ri";
 import { BsFillTelephoneFill } from "react-icons/bs";
-
-const hours = [
-  { day: "Mon – Fri", time: "09:00 – 18:00" },
-  { day: "Saturday", time: "09:00 – 15:00" },
-  { day: "Sunday", time: "By appointment" },
-];
+import { PHONE_NUMBER } from "@/lib/var";
+import { SOCIAL_MEDIA } from "@/lib/socialMedia";
+import { TooltipContent, TooltipTrigger, Tooltip } from "@/components/ui/tooltip";
 
 const ContactDisplay = ({ className }: { className: string }) => {
   return (
     <div className={`bg-black py-14 pr-14 flex flex-col gap-11 max-lg:px-0 max-lg:pt-10 ${className}`}>
       <div>
-        <p className="text-[9px] tracking-[0.24em] uppercase text-gold font-medium mb-3.5">Call Us</p>
-        <div className="font-heading text-[18px] font-light text-[rgba(245,240,232,0.7)] leading-[1.6]">
-          <Link href="tel:081234567890" className="hover:text-[#f5f0e8] transition-colors flex flex-row gap-2 w-fit">
-            <BsFillTelephoneFill size={14} className="self-center" />
-            <span className="self-center">081234567890</span>
-          </Link>
-          <Link href="tel:081234567891" className="hover:text-[#f5f0e8] transition-colors flex flex-row gap-2 w-fit">
-            <BsFillTelephoneFill size={14} className="self-center" />
-            <span className="self-center">081234567891</span>
-          </Link>
+        <p className="text-[9px] tracking-[0.24em] uppercase text-gold font-medium mb-3.5">Get in touch with Us</p>
+        <div className="flex flex-col gap-2 justify-start items-start font-heading text-[18px] font-light text-[rgba(245,240,232,0.7)] leading-[1.6]">
+          <Tooltip>
+            <TooltipTrigger>
+              <Link href="tel:081234567890" className="hover:text-[#f5f0e8] transition-colors flex flex-row gap-2 w-fit">
+                <BsFillTelephoneFill size={14} className="self-center" />
+                <span className="self-center">+{PHONE_NUMBER.pixellens}</span>
+              </Link>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>Pixellens</p>
+            </TooltipContent>
+          </Tooltip>
+
+          <Tooltip>
+            <TooltipTrigger>
+              <Link href="tel:081234567891" className="hover:text-[#f5f0e8] transition-colors flex flex-row gap-2 w-fit">
+                <BsFillTelephoneFill size={14} className="self-center" />
+                <span className="self-center">+{PHONE_NUMBER.bagus}</span>
+              </Link>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>Bagus</p>
+            </TooltipContent>
+          </Tooltip>
         </div>
         <p className="text-[11px] tracking-[0.08em] text-[rgba(245,240,232,0.3)] mt-1.5">Available during business hours</p>
       </div>
@@ -36,37 +46,25 @@ const ContactDisplay = ({ className }: { className: string }) => {
         </Link>
       </div>
 
-      {/* <div>
-        <p className="text-[9px] tracking-[0.24em] uppercase text-gold font-medium mb-3.5">Business Hours</p>
-        <div className="flex flex-col gap-1.5">
-          {hours.map(({ day, time }) => (
-            <div key={day} className="flex items-center">
-              <span className="text-[12px] tracking-[0.06em] text-[rgba(245,240,232,0.4)]">{day}</span>
-              <span className="flex-1 mx-2.5 h-px bg-[rgba(245,240,232,0.08)]" />
-              <span className="font-heading text-[15px] font-light text-[rgba(245,240,232,0.65)]">{time}</span>
-            </div>
-          ))}
-        </div>
-      </div> */}
-
       <div>
         <p className="text-[9px] tracking-[0.24em] uppercase text-gold font-medium mb-3.5">Follow Our Work</p>
-        <Link href="#" className="font-heading text-[18px] font-light text-[rgba(245,240,232,0.7)] hover:text-[#f5f0e8] transition-colors">
-          @pixellens.id
-        </Link>
         <div className="flex gap-2.5 mt-3">
-          {[
-            { icon: <RiInstagramFill size={15} />, label: "Instagram" },
-            { icon: <FaWhatsapp size={15} />, label: "WhatsApp" },
-          ].map(({ icon, label }) => (
-            <Link
-              key={label}
-              aria-label={label}
-              href="#"
-              className="w-9 h-9 border border-gold/22 flex items-center justify-center text-gold hover:border-gold/60 hover:bg-gold/6 transition-all duration-300"
-            >
-              {icon}
-            </Link>
+
+          {SOCIAL_MEDIA.map(({ icon, label, url }) => (
+            <Tooltip key={label}>
+              <TooltipTrigger>
+                <Link
+                  href={url}
+                  target="_blank"
+                  className="cursor-pointer w-9.5 h-9.5 border border-gold/25 flex items-center justify-center text-gold hover:border-gold/70 hover:bg-gold/[0.07] transition-all duration-300"
+                >
+                  {icon}
+                </Link>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>{label}</p>
+              </TooltipContent>
+            </Tooltip>
           ))}
         </div>
       </div>

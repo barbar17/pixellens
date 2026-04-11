@@ -4,6 +4,9 @@ import { FaWhatsapp } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { menuList } from "./header/menu";
 import Link from "next/link";
+import { PHONE_NUMBER } from "@/lib/var";
+import { SOCIAL_MEDIA } from "@/lib/socialMedia";
+import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 
 const Footer = () => {
   return (
@@ -73,30 +76,47 @@ const Footer = () => {
         </div>
         <div>
           <p className="text-[9px] tracking-[0.22em] uppercase text-gold font-medium mb-5">Contact Us</p>
-          <div className="flex flex-col gap-1.5 mb-7">
-            {["081234567890", "081234567891"].map((num) => (
-              <span
-                key={num}
-                className="text-[13px] tracking-[0.05em] text-[rgba(245,240,232,0.55)] hover:text-[#f5f0e8] transition-colors cursor-pointer"
-              >
-                {num}
-              </span>
-            ))}
+          <div className="flex flex-col justify-start items-start font-heading text-[18px] font-light gap-2 text-[rgba(245,240,232,0.7)] leading-[1.6] mb-7">
+            <Tooltip>
+              <TooltipTrigger>
+                <Link href="tel:081234567890" className="hover:text-[#f5f0e8] transition-colors flex flex-row gap-2 w-fit">
+                  <span className="self-center">+{PHONE_NUMBER.pixellens}</span>
+                </Link>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Pixellens</p>
+              </TooltipContent>
+            </Tooltip>
+
+            <Tooltip>
+              <TooltipTrigger>
+                <Link href="tel:081234567891" className="hover:text-[#f5f0e8] transition-colors flex flex-row gap-2 w-fit">
+                  <span className="self-center">+{PHONE_NUMBER.bagus}</span>
+                </Link>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Bagus</p>
+              </TooltipContent>
+            </Tooltip>
           </div>
 
           <p className="text-[9px] tracking-[0.22em] uppercase text-gold font-medium mb-3.5">Follow Us</p>
           <div className="flex gap-3">
-            {[
-              { icon: <RiInstagramFill size={16} />, label: "Instagram" },
-              { icon: <FaWhatsapp size={16} />, label: "WhatsApp" },
-            ].map(({ icon, label }) => (
-              <button
-                key={label}
-                aria-label={label}
-                className="cursor-pointer w-9.5 h-9.5 border border-gold/25 flex items-center justify-center text-gold hover:border-gold/70 hover:bg-gold/[0.07] transition-all duration-300"
-              >
-                {icon}
-              </button>
+            {SOCIAL_MEDIA.map(({ icon, label, url }) => (
+              <Tooltip key={label}>
+                <TooltipTrigger>
+                  <Link
+                    href={url}
+                    target="_blank"
+                    className="cursor-pointer w-9.5 h-9.5 border border-gold/25 flex items-center justify-center text-gold hover:border-gold/70 hover:bg-gold/[0.07] transition-all duration-300"
+                  >
+                    {icon}
+                  </Link>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>{label}</p>
+                </TooltipContent>
+              </Tooltip>
             ))}
           </div>
         </div>

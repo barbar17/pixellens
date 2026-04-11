@@ -6,9 +6,8 @@ import { FaWhatsapp } from "react-icons/fa";
 import { TOrderForm } from "../types/OrderFormTypes";
 import { format } from "date-fns"
 import { id } from "date-fns/locale"
+import { PHONE_NUMBER } from "@/lib/var";
 
-
-// form -> nama, instagram, alamat, tipe acara, tanggal acara, paket (options) https://bit.ly/pixellensform
 const eventType = [
   "Wedding",
   "Pre-Wedding",
@@ -40,6 +39,7 @@ const buildOrderMessage = (form: TOrderForm) => {
   const text =
     `Hi PixelLens! I'd like to inquire about a booking.\n\n` +
     `*Name:* ${form.name.trim()}\n` +
+    `*Instagram:* ${form.instagram.trim()}\n` +
     `*Service:* ${form.event.trim()}\n` +
     `*Date:* ${formattedDate}\n` +
     `*Location:* ${form.location.trim()}\n` +
@@ -54,7 +54,12 @@ const OrderForm = ({ className }: { className: string }) => {
 
   const onSubmit = () => {
     const message = buildOrderMessage(form);
-    console.log(message)
+    if(!message) return;
+
+    const encodedMessage = encodeURIComponent(message)
+
+    const url = `https://wa.me/${PHONE_NUMBER.pixellens}?text=${encodedMessage}`
+    window.open(url, "_blank");
   }
 
   return (

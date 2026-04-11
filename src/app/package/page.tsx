@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-// satuin dengan data buat photocard
 const categories = [
   {
     num: "01",
@@ -102,10 +101,10 @@ export default function Package() {
       {categories.map(({ num, name, portfolio, packages }) => (
         <div key={name} id={name} className="border-t border-[rgba(245,240,232,0.06)] last:border-b">
           <div className="flex items-center gap-5 px-14 py-10 border-b border-[rgba(245,240,232,0.04)] max-lg:px-8">
-            <span className="font-heading text-[13px] font-light text-gold/40 tracking-[0.08em]">{num}</span>
-            <h2 className="font-heading text-[32px] font-light text-[#f5f0e8] tracking-[0.02em]">{name}</h2>
+            <span className="font-heading text-[10px] md:text-[12px] font-light text-gold/40 tracking-[0.08em]">{num}</span>
+            <h2 className="font-heading text-[20px] md:text-[32px] font-light text-[#f5f0e8] tracking-[0.02em]">{name}</h2>
             <div className="flex-1 h-px bg-linear-to-r from-gold/20 to-transparent" />
-            <span className="font-heading text-xs tracking-[0.2em] uppercase text-gold/50 border border-gold/15 px-2.5 py-1.5">
+            <span className="font-heading text-[8px] md:text-xs tracking-[0.2em] uppercase text-gold/50 border border-gold/15 px-2 md:px-2.5 py-1 md:py-1.5">
               Photography
             </span>
           </div>
