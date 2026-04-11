@@ -1,12 +1,6 @@
 import GoldLine from '@/components/GoldLine'
 import PhotographyCard from './PhotographyCard'
-
-const photoCardMock = [
-  { src: "/home/photography/2.jpg", alt: "wedding", title: "Wedding", href: "/package#Wedding" },
-  { src: "/home/photography/3.jpg", alt: "pre-wedding", title: "Pre Wedding", href: "/package#Pre-Wedding" },
-  { src: "/home/photography/1.jpg", alt: "graduation", title: "Graduation", href: "/package#Graduation" },
-  { src: "/home/photography/4.jpg", alt: "others", title: "Others", href: "/package#Others" },
-]
+import { PACKAGES } from '@/lib/var'
 
 const PhotographySection = () => {
   return (
@@ -22,14 +16,16 @@ const PhotographySection = () => {
           Your legacy, framed in perfection.
         </p>
 
-        <GoldLine scale='75' margin='mt-5'/>
+        <GoldLine scale='75' margin='mt-5' />
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-0.5 max-w-7xl mx-auto px-10">
         {
-          photoCardMock.map((photo, index) => (
-            <PhotographyCard key={photo.alt} src={photo.src} alt={photo.alt} title={photo.title} index={String(index + 1).padStart(2, "0")} href={photo.href} />
-          ))
+          PACKAGES.map((photo, index) => {
+            if (index < 4) return (
+              <PhotographyCard key={photo.alt} src={photo.portfolio[0]} alt={photo.alt} title={photo.name} index={String(index + 1).padStart(2, "0")} href={photo.href} />
+            )
+          })
         }
       </div>
     </section>

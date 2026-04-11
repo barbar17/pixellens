@@ -33,6 +33,8 @@ export const PACKAGES = [
       "/home/photography/4.jpg",
     ],
     packages: ENGAGEMENT_PACKAGES,
+    href: "/package#Engagement",
+    alt: "engagement"
   },
   {
     name: "Pre-Wedding",
@@ -43,6 +45,8 @@ export const PACKAGES = [
       "/home/photography/4.jpg",
     ],
     packages: PREWEDDING_PACKAGES,
+    href: "/package#Pre-Wedding",
+    alt: "pre-wedding"
   },
   {
     name: "Wedding",
@@ -53,6 +57,8 @@ export const PACKAGES = [
       "/home/photography/4.jpg",
     ],
     packages: WEDDING_PACKAGES,
+    href: "/package#Wedding",
+    alt: "wedding"
   },
   {
     name: "Personal Graduation",
@@ -63,6 +69,8 @@ export const PACKAGES = [
       "/home/photography/4.jpg",
     ],
     packages: PERSONAL_GRADUATION_PACKAGES,
+    href: "/package#Personal Graduation",
+    alt: "personal gradiation"
   },
   {
     name: "Group Graduation",
@@ -73,5 +81,7 @@ export const PACKAGES = [
       "/home/photography/4.jpg",
     ],
     packages: GROUP_GRADUATION_PACKAGES,
+    href: "/package#Group Graduation",
+    alt: "group graduation"
   },
 ];

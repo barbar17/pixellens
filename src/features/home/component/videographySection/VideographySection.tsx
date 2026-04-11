@@ -3,6 +3,7 @@
 import GoldLine from "@/components/GoldLine";
 import { TVideographyCard } from "../../types/VideographyCardTypes";
 import VideographyCard from "./VideographyCard";
+import { PACKAGES } from "@/lib/var";
 
 const videoCategoriesMock: TVideographyCard[] = [
   {
@@ -48,13 +49,15 @@ export default function VideographySection() {
         <p className="font-heading text-base scale md:text-lg italic font-light text-neutral-500 tracking-wide">
           Life moves. We make it last.
         </p>
-        <GoldLine scale='75' margin='mt-5'/>
+        <GoldLine scale='75' margin='mt-5' />
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-0.5 max-w-7xl mx-auto px-10">
-        {videoCategoriesMock.map(vid => (
-          <VideographyCard key={vid.alt} href={vid.href} src={vid.src} alt={vid.alt} title={vid.title} duration={vid.duration}/>
-        ))}
+        {PACKAGES.map((vid, index) => {
+          if (index < 4) return (
+            <VideographyCard key={vid.alt} href={vid.href} src={vid.portfolio[0]} alt={vid.alt} title={vid.name} duration={"8"} />
+          )
+        })}
       </div>
     </section>
   );
