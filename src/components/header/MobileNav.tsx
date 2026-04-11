@@ -10,10 +10,18 @@ import {
 } from '../ui/navigation-menu';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "../ui/collapsible";
 import { Button } from "../ui/button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function MobileNav({ isActive, className }: { isActive: (menu: string) => boolean, className: string }) {
   const [show, setShow] = useState<boolean>(false);
+  const [mounted, setMounted] = useState(false);
+
+  //to prevent radix id mismatch between server and client
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   return (
     <div className={className}>
