@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { BsFillTelephoneFill } from "react-icons/bs";
-import { PHONE_NUMBER } from "@/lib/var";
+import { ADDRESS, PHONE_NUMBER } from "@/lib/var";
 import { SOCIAL_MEDIA } from "@/lib/socialMedia";
 import { TooltipContent, TooltipTrigger, Tooltip } from "@/components/ui/tooltip";
 
@@ -39,10 +39,8 @@ const ContactDisplay = ({ className }: { className: string }) => {
 
       <div>
         <p className="text-[9px] tracking-[0.24em] uppercase text-gold font-medium mb-3.5">Visit Us</p>
-        <Link href="https://maps.app.goo.gl/3LtYYLvdMYCjy6PC6" className="font-heading text-[18px] font-light text-[rgba(245,240,232,0.7)] leading-[1.6] hover:text-white transition-all">
-          Jl. Soekarno Hatta No.1,<br />
-          Way Dadi, Kec. Sukarame,<br />
-          Kota Bandar Lampung 35133
+        <Link href={ADDRESS.url} className="font-heading text-[18px] font-light text-[rgba(245,240,232,0.7)] leading-[1.6] hover:text-white transition-all">
+          {ADDRESS.text}
         </Link>
       </div>
 

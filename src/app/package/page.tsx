@@ -1,83 +1,6 @@
+import { PACKAGES } from "@/lib/var";
 import Image from "next/image";
 import Link from "next/link";
-
-const categories = [
-  {
-    num: "01",
-    name: "Wedding",
-    portfolio: [
-      "/home/photography/1.jpg",
-      "/home/photography/2.jpg",
-      "/home/photography/3.jpg",
-      "/home/photography/4.jpg",
-    ],
-    packages: [
-      {
-        name: "Silver", price: "Rp 3.500.000",
-        includes: ["4 hours coverage", "1 photographer", "100 edited photos", "Online gallery"],
-      },
-      {
-        name: "Gold", price: "Rp 6.500.000",
-        includes: ["8 hours coverage", "2 photographers", "300 edited photos", "Printed album", "Online gallery"],
-      },
-    ],
-  },
-  {
-    num: "02",
-    name: "Pre-Wedding",
-    portfolio: [
-      "/home/photography/1.jpg",
-      "/home/photography/2.jpg",
-      "/home/photography/3.jpg",
-      "/home/photography/4.jpg",
-    ],
-    packages: [
-      {
-        name: "Intimate", price: "Rp 2.500.000",
-        includes: ["2 hours session", "1 location", "60 edited photos"],
-      },
-      {
-        name: "Cinematic", price: "Rp 4.500.000",
-        includes: ["4 hours session", "2 locations", "150 edited photos", "Outfit change"],
-      },
-    ],
-  },
-  {
-    num: "03",
-    name: "Graduation",
-    portfolio: [
-      "/home/photography/1.jpg",
-      "/home/photography/2.jpg",
-      "/home/photography/3.jpg",
-      "/home/photography/4.jpg",
-    ],
-    packages: [
-      {
-        name: "Classic", price: "Rp 500.000",
-        includes: ["1 hour session", "30 edited photos", "Digital delivery"],
-      },
-      {
-        name: "Premium", price: "Rp 1.200.000",
-        includes: ["2 hours session", "2 locations", "80 edited photos", "Printed photos"],
-      },
-    ],
-  },
-  {
-    num: "04",
-    name: "Others",
-    portfolio: [
-      "/home/photography/1.jpg",
-      "/home/photography/2.jpg",
-      "/home/photography/3.jpg",
-    ],
-    packages: [
-      {
-        name: "Custom Session", price: "Rp 800.000",
-        includes: ["Portraits, events, products", "Tailored to your needs", "Custom quote on inquiry"],
-      },
-    ],
-  },
-];
 
 export default function Package() {
   return (
@@ -98,10 +21,10 @@ export default function Package() {
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-px h-14 bg-linear-to-b from-gold/45 to-transparent" />
       </div>
 
-      {categories.map(({ num, name, portfolio, packages }) => (
+      {PACKAGES.map(({ name, portfolio, packages }, index) => (
         <div key={name} id={name} className="border-t border-[rgba(245,240,232,0.06)] last:border-b">
           <div className="flex items-center gap-5 px-14 py-10 border-b border-[rgba(245,240,232,0.04)] max-lg:px-8">
-            <span className="font-heading text-[10px] md:text-[12px] font-light text-gold/40 tracking-[0.08em]">{num}</span>
+            <span className="font-heading text-[10px] md:text-[12px] font-light text-gold/40 tracking-[0.08em]">{String(index).padStart(2, "0")}</span>
             <h2 className="font-heading text-[20px] md:text-[32px] font-light text-[#f5f0e8] tracking-[0.02em]">{name}</h2>
             <div className="flex-1 h-px bg-linear-to-r from-gold/20 to-transparent" />
             <span className="font-heading text-[8px] md:text-xs tracking-[0.2em] uppercase text-gold/50 border border-gold/15 px-2 md:px-2.5 py-1 md:py-1.5">

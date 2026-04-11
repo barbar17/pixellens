@@ -4,7 +4,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { menuList } from "./header/menu";
 import Link from "next/link";
-import { PHONE_NUMBER } from "@/lib/var";
+import { ADDRESS, PHONE_NUMBER } from "@/lib/var";
 import { SOCIAL_MEDIA } from "@/lib/socialMedia";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 
@@ -28,14 +28,12 @@ const Footer = () => {
           </div>
 
           <p className="text-[9px] tracking-[0.22em] uppercase text-gold font-medium mb-2.5">Visit Us</p>
-          <div className="flex gap-2 items-start cursor-pointer group">
+          <Link href={ADDRESS.url} target="_blank" className="flex gap-2 items-start cursor-pointer group">
             <FaLocationDot className="text-gold shrink-0 mt-0.5" />
             <span className="text-[12px] leading-[1.7] text-[rgba(245,240,232,0.5)] group-hover:text-[rgba(245,240,232,0.8)] transition-colors">
-              Jl. Soekarno Hatta No.1, Way Dadi,<br />
-              Kec. Sukarame, Kota Bandar Lampung,<br />
-              Lampung 35133
+              {ADDRESS.text}
             </span>
-          </div>
+          </Link>
         </div>
 
         <div>
