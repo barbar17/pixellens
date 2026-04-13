@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import { Playfair_Display, Raleway } from 'next/font/google'
 import "./globals.css";
 
-import Footer from "@/components/footer";
-import Header from "@/components/header/header";
+import Footer from "@/components/Footer";
+import Header from "@/components/header/Header";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { Flip, ToastContainer } from "react-toastify";
+import ToastProvider from "@/components/ToastProvidet";
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -44,6 +46,8 @@ export const metadata: Metadata = {
     "cinematic videography",
     "graduation videography",
     "PixelLens",
+    "Lampung fotografi",
+    "Lampung photography",
   ],
 
   authors: [{ name: "PixelLens" }],
@@ -97,6 +101,7 @@ export default function RootLayout({
         className={`font-body`}
       >
         <div>
+          <ToastProvider/>
           <Header />
           <TooltipProvider>
             <div className="bg-black pb-10 min-h-dvh">

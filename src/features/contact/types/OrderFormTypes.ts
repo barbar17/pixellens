@@ -3,7 +3,7 @@ export type TOrderForm = {
   instagram: string;
   date: Date | undefined;
   location: string;
-  event: string;
   package: string;
+  tier: string;
   desc: string;
 };

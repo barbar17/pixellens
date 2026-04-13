@@ -6,10 +6,20 @@ import {
 import { PREWEDDING_PACKAGES } from "./package/preWedding";
 import { WEDDING_PACKAGES } from "./package/wedding";
 
-export const PHONE_NUMBER = {
-  pixellens: "6288287485157",
-  bagus: "6285709645040",
-};
+export const PHONE_NUMBER = [
+  {
+    name: "Pixellens",
+    phone: "6288287485157"
+  },
+  {
+    name: "Pixellens 2",
+    phone: "6282197759506"
+  },
+  {
+    name: "Bagus",
+    phone: "6285709645040"
+  },
+]
 
 export const INSTAGRAM = "https://www.instagram.com/pixellens.photography/";
 

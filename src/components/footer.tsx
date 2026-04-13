@@ -1,12 +1,11 @@
 'use client';
-import { RiInstagramFill } from "react-icons/ri";
-import { FaWhatsapp } from "react-icons/fa";
-import { FaLocationDot } from "react-icons/fa6";
+import { RiMapPin5Line } from "react-icons/ri";
 import { menuList } from "./header/menu";
 import Link from "next/link";
 import { ADDRESS, PHONE_NUMBER } from "@/lib/var";
 import { SOCIAL_MEDIA } from "@/lib/socialMedia";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
+import { RxOpenInNewWindow } from "react-icons/rx";
 
 const Footer = () => {
   return (
@@ -28,12 +27,23 @@ const Footer = () => {
           </div>
 
           <p className="text-[9px] tracking-[0.22em] uppercase text-gold font-medium mb-2.5">Visit Us</p>
-          <Link href={ADDRESS.url} target="_blank" className="flex gap-2 items-start cursor-pointer group">
-            <FaLocationDot className="text-gold shrink-0 mt-0.5" />
-            <span className="text-[12px] leading-[1.7] text-[rgba(245,240,232,0.5)] group-hover:text-[rgba(245,240,232,0.8)] transition-colors">
-              {ADDRESS.text}
-            </span>
-          </Link>
+          <Tooltip>
+            <TooltipTrigger>
+              <Link href={ADDRESS.url} target="_blank" className="flex gap-2 text-start items-start cursor-pointer group">
+                <RiMapPin5Line className="text-gold shrink-0 mt-0.5" />
+                <span className="text-[12px] leading-[1.7] text-[rgba(245,240,232,0.5)] group-hover:text-[rgba(245,240,232,0.8)] transition-colors">
+                  {ADDRESS.text}
+                </span>
+              </Link>
+            </TooltipTrigger>
+            <TooltipContent>
+              <div className="flex gap-2 align-text-top">
+                <span>Open maps</span>
+                <RxOpenInNewWindow />
+              </div>
+            </TooltipContent>
+          </Tooltip>
+
         </div>
 
         <div>
@@ -75,27 +85,22 @@ const Footer = () => {
         <div>
           <p className="text-[9px] tracking-[0.22em] uppercase text-gold font-medium mb-5">Contact Us</p>
           <div className="flex flex-col justify-start items-start font-heading text-[18px] font-light gap-2 text-[rgba(245,240,232,0.7)] leading-[1.6] mb-7">
-            <Tooltip>
-              <TooltipTrigger>
-                <Link href="tel:081234567890" className="hover:text-[#f5f0e8] transition-colors flex flex-row gap-2 w-fit">
-                  <span className="self-center">+{PHONE_NUMBER.pixellens}</span>
-                </Link>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>Pixellens</p>
-              </TooltipContent>
-            </Tooltip>
-
-            <Tooltip>
-              <TooltipTrigger>
-                <Link href="tel:081234567891" className="hover:text-[#f5f0e8] transition-colors flex flex-row gap-2 w-fit">
-                  <span className="self-center">+{PHONE_NUMBER.bagus}</span>
-                </Link>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>Bagus</p>
-              </TooltipContent>
-            </Tooltip>
+            {
+              PHONE_NUMBER.map(item => {
+                return (
+                  <Tooltip key={item.phone}>
+                    <TooltipTrigger>
+                      <Link href={`tel:${item.phone}`} className="hover:text-[#f5f0e8] transition-colors flex flex-row gap-2 w-fit">
+                        <span className="self-center">+{item.phone}</span>
+                      </Link>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>{item.name}</p>
+                    </TooltipContent>
+                  </Tooltip>
+                )
+              })
+            }
           </div>
 
           <p className="text-[9px] tracking-[0.22em] uppercase text-gold font-medium mb-3.5">Follow Us</p>
@@ -112,7 +117,10 @@ const Footer = () => {
                   </Link>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>{label}</p>
+                  <div className="flex gap-2">
+                    <p>{label}</p>
+                    <RxOpenInNewWindow />
+                  </div>
                 </TooltipContent>
               </Tooltip>
             ))}

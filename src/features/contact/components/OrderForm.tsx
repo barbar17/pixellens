@@ -1,46 +1,44 @@
 "use client";
 import DatePicker from "@/components/DatePicker";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { TOrderForm } from "../types/OrderFormTypes";
 import { format } from "date-fns"
 import { id } from "date-fns/locale"
-import { PHONE_NUMBER } from "@/lib/var";
-
-const eventType = [
-  "Wedding",
-  "Pre-Wedding",
-  "Graduation",
-  "Ceremony",
-  "Other",
-];
-
-const packageSelection = [
-  "Silver",
-  "Gold",
-  "Basic",
-]
+import { PACKAGES, PHONE_NUMBER } from "@/lib/var";
+import { toast } from "react-toastify";
+import { useSearchParams } from "next/navigation";
 
 const orderFormDefault: TOrderForm = {
   name: "",
   instagram: "",
   date: new Date(),
   location: "",
-  event: "",
   package: "",
+  tier: "",
   desc: "",
 }
 
 const buildOrderMessage = (form: TOrderForm) => {
-  if (!form.date) return;
+  if (!form.date) {
+    toast.error("Please fill in the event date");
+    return;
+  }
+
+  if (form.tier === "-" || form.tier === "") {
+    toast.error("Please fill in the package tier");
+    return;
+  }
+
   const formattedDate = format(form.date, "PPP", { locale: id });
 
   const text =
     `Hi PixelLens! I'd like to inquire about a booking.\n\n` +
     `*Name:* ${form.name.trim()}\n` +
     `*Instagram:* ${form.instagram.trim()}\n` +
-    `*Service:* ${form.event.trim()}\n` +
+    `*Package:* ${form.package.trim()}\n` +
+    `*Tier:* ${form.tier.trim()}\n` +
     `*Date:* ${formattedDate}\n` +
     `*Location:* ${form.location.trim()}\n` +
     (form.desc ? `*Notes:* ${form.desc}\n` : "") +
@@ -50,17 +48,47 @@ const buildOrderMessage = (form: TOrderForm) => {
 }
 
 const OrderForm = ({ className }: { className: string }) => {
+  const searchParams = useSearchParams();
+
+  const tierInit = useRef(false);
   const [form, setForm] = useState<TOrderForm>(orderFormDefault);
+  const [packageTier, setPackageTier] = useState<any[]>([]);
 
   const onSubmit = () => {
     const message = buildOrderMessage(form);
-    if(!message) return;
+    if (!message) return;
 
     const encodedMessage = encodeURIComponent(message)
 
-    const url = `https://wa.me/${PHONE_NUMBER.pixellens}?text=${encodedMessage}`
+    const url = `https://wa.me/${PHONE_NUMBER[0].phone}?text=${encodedMessage}`
     window.open(url, "_blank");
   }
+
+  useEffect(() => {
+    const p = searchParams.get('p');
+
+    if (p) setForm(prev => ({ ...prev, package: p }));
+  }, [])
+
+  useEffect(() => {
+    const tier: any[] = [];
+    PACKAGES
+      .filter(p => p.name === form.package)
+      .forEach(p => p.packages.map(t => {
+        tier.push({ name: t.name });
+      }))
+
+    setPackageTier(tier);
+
+    if (!tierInit.current) {
+      const t = searchParams.get("t");
+
+      if (t) {
+        setForm(prev => ({ ...prev, tier: t }));
+        if (t === form.tier) tierInit.current = true;
+      }
+    }
+  }, [form.package])
 
   return (
     <div className={`bg-black py-14 pl-14 max-lg:px-0 max-lg:pb-10 ${className}`}>
@@ -131,35 +159,12 @@ const OrderForm = ({ className }: { className: string }) => {
 
         <div>
           <label className="block text-[9px] tracking-[0.22em] uppercase text-gold font-medium mb-2">
-            Event Type
-          </label>
-          <Select
-            required
-            value={form.event || undefined}
-            onValueChange={(val) => setForm({ ...form, event: val })}
-          >
-            <SelectTrigger className="w-full bg-transparent border-0 border-b border-[rgba(245,240,232,0.12)] rounded-none px-0 pb-2.5 pt-2 font-heading text-[13px] font-light text-[#f5f0e8] shadow-none focus:ring-0 focus:border-gold/60 hover:border-gold/60 transition-colors duration-300 [&>span]:text-[rgba(245,240,232,0.25)] data-placeholder:text-[rgba(245,240,232,0.25)]">
-              <SelectValue placeholder="Select a Service" className="text-[#f5f0e8] data-placeholder:text-[rgba(245,240,232,0.25)]" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectGroup>
-                <SelectLabel>Select a service</SelectLabel>
-                {eventType.map((s) => (
-                  <SelectItem key={s} value={s} className="bg-white text-black">{s}</SelectItem>
-                ))}
-              </SelectGroup>
-            </SelectContent>
-          </Select>
-        </div>
-
-        <div>
-          <label className="block text-[9px] tracking-[0.22em] uppercase text-gold font-medium mb-2">
             Package
           </label>
           <Select
             required
             value={form.package || undefined}
-            onValueChange={(val) => setForm({ ...form, package: val })}
+            onValueChange={(val) => setForm({ ...form, package: val, tier: "-" })}
           >
             <SelectTrigger className="w-full bg-transparent border-0 border-b border-[rgba(245,240,232,0.12)] rounded-none px-0 pb-2.5 pt-2 font-heading text-[13px] font-light text-[#f5f0e8] shadow-none focus:ring-0 focus:border-gold/60 hover:border-gold/60 transition-colors duration-300 [&>span]:text-[rgba(245,240,232,0.25)] data-placeholder:text-[rgba(245,240,232,0.25)]">
               <SelectValue placeholder="Select a Package" className="text-[#f5f0e8] data-placeholder:text-[rgba(245,240,232,0.25)]" />
@@ -167,9 +172,38 @@ const OrderForm = ({ className }: { className: string }) => {
             <SelectContent>
               <SelectGroup>
                 <SelectLabel>Select a package</SelectLabel>
-                {packageSelection.map((s) => (
-                  <SelectItem key={s} value={s} className="bg-white text-black">{s}</SelectItem>
-                ))}
+                {PACKAGES.map((p) => {
+                  return (<SelectItem key={p.name} value={p.name} className="bg-white text-black">{p.name}</SelectItem>)
+                })}
+                <SelectItem value={"Other"} className="bg-white text-black">Other</SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div>
+          <label className="block text-[9px] tracking-[0.22em] uppercase text-gold font-medium mb-2">
+            Package Tier
+          </label>
+          <Select
+            required
+            value={form.tier || undefined}
+            onValueChange={(val) => setForm({ ...form, tier: val })}
+          >
+            <SelectTrigger className="w-full bg-transparent border-0 border-b border-[rgba(245,240,232,0.12)] rounded-none px-0 pb-2.5 pt-2 font-heading text-[13px] font-light text-[#f5f0e8] shadow-none focus:ring-0 focus:border-gold/60 hover:border-gold/60 transition-colors duration-300 [&>span]:text-[rgba(245,240,232,0.25)] data-placeholder:text-[rgba(245,240,232,0.25)]">
+              <SelectValue placeholder="Select a Package Tier" className="text-[#f5f0e8] data-placeholder:text-[rgba(245,240,232,0.25)]" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectLabel>Select a tier</SelectLabel>
+                <SelectItem value={"-"} className="bg-white text-black">Select a Package Tier</SelectItem>
+                {
+                  packageTier
+                    .map(t => {
+                      return (<SelectItem key={t.name} value={t.name} className="bg-white text-black">{t.name}</SelectItem>)
+                    })
+                }
+                <SelectItem value={"Other"} className="bg-white text-black">Other</SelectItem>
               </SelectGroup>
             </SelectContent>
           </Select>

@@ -12,7 +12,7 @@ export const SOCIAL_MEDIA = [
   { 
     icon: <FaWhatsapp size={16} />,
     label: "Whatssapp",
-    url: `https://wa.me/${PHONE_NUMBER.pixellens}` 
+    url: `https://wa.me/${PHONE_NUMBER[0].phone}` 
   },
   { 
     icon: <FaFacebook size={16} />,

@@ -60,8 +60,9 @@ export default function Package() {
               <p className="font-heading text-sm tracking-[0.22em] uppercase text-gold/60 font-medium mb-5">Packages</p>
 
               {packages.map(({ name: pkgName, price, includes }) => (
-                <div
+                <Link
                   key={pkgName}
+                  href={`/contact?p=${name}&t=${pkgName}`}
                   className="group relative border border-[rgba(245,240,232,0.06)] p-5 mb-2.5 overflow-hidden hover:border-gold/22 hover:bg-gold/3 transition-all duration-300 cursor-pointer"
                 >
                   <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-gold to-transparent scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-400" />
@@ -82,15 +83,8 @@ export default function Package() {
                       </div>
                     ))}
                   </div>
-                </div>
+                </Link>
               ))}
-
-              <Link
-                href="/contact"
-                className="block font-heading text-[9px] tracking-[0.22em] uppercase text-gold border border-gold/25 py-3 text-center hover:bg-gold hover:text-black hover:border-gold transition-all duration-300 mt-4"
-              >
-                Book This Package
-              </Link>
             </div>
 
           </div>
@@ -108,7 +102,7 @@ export default function Package() {
           <em className="italic text-[rgba(245,240,232,0.45)]">Let's talk.</em>
         </h2>
         <Link
-          href="/work-with-us"
+          href="/contact"
           className="inline-block font-heading text-[10px] tracking-[0.26em] uppercase bg-gold text-black px-9 py-4 font-medium hover:bg-[#caa84e] hover:-translate-y-px transition-all duration-300"
         >
           Work With Us
