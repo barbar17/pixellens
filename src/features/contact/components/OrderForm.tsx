@@ -47,11 +47,12 @@ const buildOrderMessage = (form: TOrderForm) => {
   return text;
 }
 
-const OrderForm = ({ className }: { className: string }) => {
-  const searchParams = useSearchParams();
-
-  const tierInit = useRef(false);
-  const [form, setForm] = useState<TOrderForm>(orderFormDefault);
+const OrderForm = ({ className, props }: { className: string, props: { package: string | undefined, tier: string | undefined } }) => {
+  const [form, setForm] = useState<TOrderForm>({
+    ...orderFormDefault,
+    package: props.package ?? orderFormDefault.package,
+    tier: props.tier ?? orderFormDefault.tier,
+  });
   const [packageTier, setPackageTier] = useState<any[]>([]);
 
   const onSubmit = () => {
@@ -65,12 +66,6 @@ const OrderForm = ({ className }: { className: string }) => {
   }
 
   useEffect(() => {
-    const p = searchParams.get('p');
-
-    if (p) setForm(prev => ({ ...prev, package: p }));
-  }, [])
-
-  useEffect(() => {
     const tier: any[] = [];
     PACKAGES
       .filter(p => p.name === form.package)
@@ -79,15 +74,6 @@ const OrderForm = ({ className }: { className: string }) => {
       }))
 
     setPackageTier(tier);
-
-    if (!tierInit.current) {
-      const t = searchParams.get("t");
-
-      if (t) {
-        setForm(prev => ({ ...prev, tier: t }));
-        if (t === form.tier) tierInit.current = true;
-      }
-    }
   }, [form.package])
 
   return (
