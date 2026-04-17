@@ -23,7 +23,7 @@ const PhotographySection = () => {
         {
           PACKAGES.map((photo, index) => {
             if (index < 4) return (
-              <PhotographyCard key={photo.alt} src={photo.portfolio[0]} alt={photo.alt} title={photo.name} index={String(index + 1).padStart(2, "0")} href={photo.href} />
+              <PhotographyCard key={photo.alt} src={photo.portofolio[0]} alt={photo.alt} title={photo.name} index={String(index + 1).padStart(2, "0")} href={photo.href} />
             )
           })
         }
