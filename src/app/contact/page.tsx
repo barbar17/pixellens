@@ -8,7 +8,6 @@ export default async function Contact({ searchParams }: { searchParams: Promise<
   const servicePackage = params.p ?? undefined;
   const tier = params.t ?? undefined;
 
-  console.log(searchParams);
   return (
     <main className="min-h-screen font-heading">
       <ContactHero />

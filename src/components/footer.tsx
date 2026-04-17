@@ -104,7 +104,7 @@ const Footer = () => {
           </div>
 
           <p className="text-[9px] tracking-[0.22em] uppercase text-gold font-medium mb-3.5">Follow Us</p>
-          <div className="flex gap-3">
+          <div className="grid grid-cols-3 gap-4 w-fit">
             {SOCIAL_MEDIA.map(({ icon, label, url }) => (
               <Tooltip key={label}>
                 <TooltipTrigger>

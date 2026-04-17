@@ -1,5 +1,5 @@
+import PortofolioCarousel from "@/features/package/components/PortofolioCarousel";
 import { PACKAGES } from "@/lib/var";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function Package() {
@@ -21,7 +21,7 @@ export default function Package() {
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-px h-14 bg-linear-to-b from-gold/45 to-transparent" />
       </div>
 
-      {PACKAGES.map(({ name, portfolio, packages }, index) => (
+      {PACKAGES.map(({ name, portofolio, packages }, index) => (
         <div key={name} id={name} className="border-t border-[rgba(245,240,232,0.06)] last:border-b">
           <div className="flex items-center gap-5 px-14 py-10 border-b border-[rgba(245,240,232,0.04)] max-lg:px-8">
             <span className="font-heading text-[10px] md:text-[12px] font-light text-gold/40 tracking-[0.08em]">{String(index).padStart(2, "0")}</span>
@@ -35,7 +35,11 @@ export default function Package() {
           <div className="grid grid-cols-2 max-xl:grid-cols-1">
             <div className="px-14 pt-9 pb-12 border-r border-gold/8 max-xl:border-r-0 max-xl:border-b max-lg:px-8">
               <p className="font-heading text-[9px] tracking-[0.22em] uppercase text-gold/60 font-medium mb-5">Portfolio</p>
-              <div className="columns-2 gap-0.75 mx-12">
+              <PortofolioCarousel
+                portofolio={portofolio}
+                name={name}
+              />
+              {/* <div className="columns-2 gap-0.75 mx-12">
                 {portfolio.map((src, i) => (
                   <div key={i} className="group break-inside-avoid mb-0.75 relative overflow-hidden cursor-pointer">
                     <Image
@@ -53,7 +57,7 @@ export default function Package() {
                     </div>
                   </div>
                 ))}
-              </div>
+              </div> */}
             </div>
 
             <div className="px-12 pt-9 pb-12 flex flex-col max-lg:px-8">

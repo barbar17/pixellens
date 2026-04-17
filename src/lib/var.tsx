@@ -11,14 +11,6 @@ export const PHONE_NUMBER = [
     name: "Pixellens",
     phone: "6288287485157"
   },
-  {
-    name: "Pixellens 2",
-    phone: "6282197759506"
-  },
-  {
-    name: "Bagus",
-    phone: "6285709645040"
-  },
 ]
 
 export const INSTAGRAM = "https://www.instagram.com/pixellens.photography/";
@@ -36,7 +28,7 @@ export const ADDRESS = {
 export const PACKAGES = [
   {
     name: "Engagement",
-    portfolio: [
+    portofolio: [
       "/home/photography/1.jpg",
       "/home/photography/2.jpg",
       "/home/photography/3.jpg",
@@ -48,7 +40,7 @@ export const PACKAGES = [
   },
   {
     name: "Pre-Wedding",
-    portfolio: [
+    portofolio: [
       "/home/photography/1.jpg",
       "/home/photography/2.jpg",
       "/home/photography/3.jpg",
@@ -60,7 +52,7 @@ export const PACKAGES = [
   },
   {
     name: "Wedding",
-    portfolio: [
+    portofolio: [
       "/home/photography/1.jpg",
       "/home/photography/2.jpg",
       "/home/photography/3.jpg",
@@ -72,7 +64,7 @@ export const PACKAGES = [
   },
   {
     name: "Personal Graduation",
-    portfolio: [
+    portofolio: [
       "/home/photography/1.jpg",
       "/home/photography/2.jpg",
       "/home/photography/3.jpg",
@@ -84,7 +76,7 @@ export const PACKAGES = [
   },
   {
     name: "Group Graduation",
-    portfolio: [
+    portofolio: [
       "/home/photography/1.jpg",
       "/home/photography/2.jpg",
       "/home/photography/3.jpg",
