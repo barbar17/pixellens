@@ -1,40 +1,8 @@
 "use client";
 
 import GoldLine from "@/components/GoldLine";
-import { TVideographyCard } from "../../types/VideographyCardTypes";
 import VideographyCard from "./VideographyCard";
 import { PACKAGES } from "@/lib/var";
-
-const videoCategoriesMock: TVideographyCard[] = [
-  {
-    alt: "event",
-    title: "Event Coverage",
-    href: "#",
-    src: "/home/photography/3.jpg",
-    duration: "8 min"
-  },
-  {
-    alt: "wedding",
-    title: "Wedding Film",
-    href: "#",
-    src: "/home/photography/1.jpg",
-    duration: "8 min"
-  },
-  {
-    alt: "pre-wedding",
-    title: "Pre Wedding",
-    href: "#",
-    src: "/home/photography/2.jpg",
-    duration: "8 min"
-  },
-  {
-    alt: "documentary",
-    title: "Documentary",
-    href: "#",
-    src: "/home/photography/4.jpg",
-    duration: "8 min"
-  },
-];
 
 export default function VideographySection() {
   return (
@@ -55,7 +23,7 @@ export default function VideographySection() {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-0.5 max-w-7xl mx-auto px-10">
         {PACKAGES.map((vid, index) => {
           if (index < 4) return (
-            <VideographyCard key={vid.alt} href={vid.href} src={vid.portfolio[0]} alt={vid.alt} title={vid.name} duration={"8"} />
+            <VideographyCard key={vid.alt} href={vid.href} src={vid.portofolio[0]} alt={vid.alt} title={vid.name} duration={"8"} />
           )
         })}
       </div>
