@@ -129,10 +129,10 @@ const Footer = () => {
       </div>
       <div className="flex items-center justify-between px-20 py-5 max-lg:px-10 max-sm:flex-col max-sm:gap-3 max-sm:text-center">
         <span className="text-[10px] tracking-[0.12em] text-[rgba(245,240,232,0.25)]">
-          © 2025 <span className="text-gold/50">PixelLens</span>. All rights reserved.
+          © 2025 <span className="text-gold/50">PixelLens & Akbar Maulana</span>. All rights reserved.
         </span>
         <span className="font-heading italic text-[11px] text-[rgba(245,240,232,0.2)] tracking-[0.06em]">
-          ——◆—— Fine Art Photography & Cinematography ——◆——
+          Fine Art Photography & Cinematography
         </span>
       </div>
 

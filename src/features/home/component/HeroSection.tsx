@@ -23,7 +23,7 @@ const HeroSection = () => {
 
             <div className="flex items-center gap-6">
               <a href="/package" className="text-[9px] md:text-[10px] tracking-[0.25em] uppercase font-medium bg-gold text-black px-4 py-3 md:px-8 md:py-3.5 hover:bg-gold/80 transition-colors duration-300">
-                View Our Service
+                View Our Package
               </a>
               <a href="/contact" className="text-[9px] md:text-[10px] tracking-[0.25em] uppercase font-light text-[#f5f0e8] border border-white/30 px-4 py-3 md:px-8 md:py-3.5 hover:border-gold hover:text-gold transition-all duration-300">
                 Book a Session

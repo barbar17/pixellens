@@ -72,20 +72,22 @@ export default function Package() {
                   <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-gold to-transparent scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-400" />
 
                   <div className="flex items-start justify-between gap-2.5 mb-3">
-                    <span className="font-heading text-2xl font-light text-[#f5f0e8]">{pkgName}</span>
+                    <span className="font-heading text-xl font-light text-[#f5f0e8]">{pkgName}</span>
                     <div className="text-right shrink-0">
-                      <span className="block font-heading text-xs tracking-[0.14em] uppercase text-[rgba(245,240,232,0.55)] mb-0.5">Starting from</span>
+                      <span className="block font-heading text-[12px] tracking-[0.14em] uppercase text-[rgba(245,240,232,0.55)] mb-0.5">Starting from</span>
                       <span className="font-heading text-xl font-light text-gold">{price}</span>
                     </div>
                   </div>
 
-                  <div className="flex flex-col gap-1.5">
-                    {includes.map((item) => (
-                      <div key={item} className="flex items-center gap-2 font-heading text-base text-[rgba(245,240,232,0.50)] tracking-[0.03em]">
-                        <span className="w-0.75 h-0.75 rounded-full bg-gold/45 shrink-0" />
-                        {item}
-                      </div>
-                    ))}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-1.5">
+                    {
+                      includes.map((item) => (
+                        <div key={item} className="flex items-center gap-2 font-heading text-sm text-[rgba(245,240,232,0.50)] tracking-[0.03em]">
+                          <span className="w-0.75 h-0.75 rounded-full bg-gold/45 shrink-0" />
+                          {item}
+                        </div>
+                      ))
+                    }
                   </div>
                 </Link>
               ))}
