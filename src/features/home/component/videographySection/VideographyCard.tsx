@@ -10,6 +10,11 @@ const VideographyCard = ({ href, src, alt, title, duration }: TVideographyCard) 
         src={src}
         alt={alt}
         fill
+        sizes="
+          (max-width: 768px) 100vw,
+          (max-width: 1024px) 50vw,
+          33vw
+        "
         className="object-cover transition-all duration-700 ease-out brightness-35 md:brightness-60 saturate-40 group-hover:scale-105 group-hover:brightness-35 group-hover:saturate-25"
       />
 

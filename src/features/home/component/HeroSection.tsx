@@ -4,7 +4,7 @@ const HeroSection = () => {
   return (
     <section className="min-h-screen min-w-full flex flex-col items-center justify-center gap-8">
         <div className="relative w-full h-dvh overflow-hidden">
-          <div className="absolute inset-0 bg-[url(/hero.jpg)] bg-cover bg-center bg-fixed brightness-55 saturate-60" />
+          <div className="absolute inset-0 bg-[url(/hero.avif)] bg-cover bg-center bg-fixed brightness-55 saturate-60" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(0,0,0,0.7)_100%)]" />
           <div className="absolute inset-0 bg-linear-to-t from-black/85 via-black/10 to-black/40" />
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">

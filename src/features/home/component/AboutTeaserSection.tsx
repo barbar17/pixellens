@@ -13,9 +13,14 @@ export default function AboutTeaser() {
     <section className="grid grid-cols-2 min-h-[86vh] overflow-hidden bg-[#0a0a0a] max-lg:grid-cols-1">
       <div className="relative overflow-hidden group max-lg:aspect-4/3">
         <Image
-          src="/hero.jpg"
+          src="/hero.avif"
           alt="Photographer at work"
           fill
+          sizes="
+            (max-width: 768px) 100vw,
+            (max-width: 1024px) 50vw,
+            33vw
+          "
           className="object-cover brightness-[0.72] saturate-50 scale-[1.04] group-hover:scale-100 transition-transform duration-9000 ease-linear"
         />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_50%,transparent_40%,rgba(0,0,0,0.45)_100%)]" />

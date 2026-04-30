@@ -5,7 +5,17 @@ import { TPhotographyCard } from "../../types/PhotographyCardTypes";
 const PhotographyCard = ({ src, alt, title, index, href = "#" }: TPhotographyCard) => {
   return (
     <a href={href} className="relative overflow-hidden cursor-pointer aspect-2/3 block group">
-      <Image src={src} alt={alt} fill className="object-cover transition-all duration-700 ease-out brightness-35 md:brightness-65 saturate-35 md:saturate-50 group-hover:scale-105 md:group-hover:brightness-35 group-hover:saturate-30" />
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        sizes="
+          (max-width: 768px) 100vw,
+          (max-width: 1024px) 50vw,
+          33vw
+        "
+        className="object-cover transition-all duration-700 ease-out brightness-35 md:brightness-65 saturate-35 md:saturate-50 group-hover:scale-105 md:group-hover:brightness-35 group-hover:saturate-30"
+      />
       <div className="absolute inset-0 bg-linear-to-t from-black/85 via-transparent to-transparent" />
       <span className="absolute top-7 left-2 md:left-8 text-[11px] tracking-[0.2em] text-gold font-light md:opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-100">
         {index}

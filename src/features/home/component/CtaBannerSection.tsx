@@ -5,7 +5,7 @@ export default function CtaBanner() {
     <section className="relative min-h-[44vh] flex mt-10 items-center justify-center overflow-hidden bg-[#0a0a0a]">
       <div
         className="absolute inset-0 bg-cover bg-position-[center_30%] brightness-[0.18] saturate-30 scale-[1.03] hover:scale-100 transition-transform duration-12000 ease-linear"
-        style={{ backgroundImage: "url('/hero.jpg')" }}
+        style={{ backgroundImage: "url('/hero.avif')" }}
       />
 
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,transparent_20%,rgba(0,0,0,0.72)_100%)]" />
