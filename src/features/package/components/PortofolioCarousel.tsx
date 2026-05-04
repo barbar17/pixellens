@@ -5,6 +5,7 @@ import Image from 'next/image';
 
 const PortofolioCarousel = ({ portofolio, name }: { portofolio: string[], name: string }) => {
   return (
+    <>
     <Carousel
       opts={{
         align: "center",
@@ -41,6 +42,7 @@ const PortofolioCarousel = ({ portofolio, name }: { portofolio: string[], name: 
         }
       </CarouselContent>
     </Carousel>
+    </>
   )
 }
 

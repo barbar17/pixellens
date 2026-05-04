@@ -1,11 +1,10 @@
 import Image from 'next/image'
 import { TVideographyCard } from '../../types/VideographyCardTypes'
-import { BsClockHistory } from "react-icons/bs";
 import { FaFilm } from "react-icons/fa";
 
-const VideographyCard = ({ href, src, alt, title, duration }: TVideographyCard) => {
+const VideographyCard = ({ href, src, alt, title }: TVideographyCard) => {
   return (
-    <a href={href} className="relative overflow-hidden cursor-pointer aspect-2/3 block group">
+    <a href={href} target='_blank' className="relative overflow-hidden cursor-pointer aspect-2/3 block group">
       <Image
         src={src}
         alt={alt}

@@ -22,8 +22,8 @@ export default function VideographySection() {
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-0.5 max-w-7xl mx-auto px-10">
         {PACKAGES.map((vid, index) => {
-          if (index < 4) return (
-            <VideographyCard key={vid.alt} href={vid.href} src={vid.portofolio[0]} alt={vid.alt} title={vid.name} duration={"8"} />
+          if (vid.showCard) return (
+            <VideographyCard key={vid.alt} href={vid.vidHref} src={vid.portofolio[0]} alt={vid.alt} title={vid.name} duration={"8"} />
           )
         })}
       </div>

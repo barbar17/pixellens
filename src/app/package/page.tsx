@@ -1,6 +1,7 @@
 import PortofolioCarousel from "@/features/package/components/PortofolioCarousel";
 import { PACKAGES } from "@/lib/var";
 import Link from "next/link";
+import { RxOpenInNewWindow } from "react-icons/rx";
 
 export default function Package() {
   return (
@@ -21,7 +22,7 @@ export default function Package() {
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-px h-14 bg-linear-to-b from-gold/45 to-transparent" />
       </div>
 
-      {PACKAGES.map(({ name, portofolio, packages }, index) => (
+      {PACKAGES.map(({ name, portofolio, packages, igHref }, index) => (
         <div key={name} id={name} className="border-t border-[rgba(245,240,232,0.06)] last:border-b">
           <div className="flex items-center gap-5 px-14 py-10 border-b border-[rgba(245,240,232,0.04)] max-lg:px-8">
             <span className="font-heading text-[10px] md:text-[12px] font-light text-gold/40 tracking-[0.08em]">{String(index).padStart(2, "0")}</span>
@@ -35,29 +36,25 @@ export default function Package() {
           <div className="grid grid-cols-2 max-xl:grid-cols-1">
             <div className="px-14 pt-9 pb-12 border-r border-gold/8 max-xl:border-r-0 max-xl:border-b max-lg:px-8">
               <p className="font-heading text-[9px] tracking-[0.22em] uppercase text-gold/60 font-medium mb-5">Portfolio</p>
-              <PortofolioCarousel
-                portofolio={portofolio}
-                name={name}
-              />
-              {/* <div className="columns-2 gap-0.75 mx-12">
-                {portfolio.map((src, i) => (
-                  <div key={i} className="group break-inside-avoid mb-0.75 relative overflow-hidden cursor-pointer">
-                    <Image
-                      src={src}
-                      alt={`${name} ${i + 1}`}
-                      width={500}
-                      height={700}
-                      className={`w-full object-cover brightness-[0.72] saturate-[0.45] group-hover:scale-[1.05] group-hover:brightness-[0.45] group-hover:saturate-[0.25] transition-all duration-600 ${
-                        i % 3 === 0 ? "aspect-2/3" : i % 3 === 1 ? "aspect-3/4" : "aspect-4/5"
-                      }`}
-                    />
-                    <div className="absolute inset-0 flex flex-col justify-end p-3.5 opacity-0 group-hover:opacity-100 transition-opacity duration-400">
-                      <div className="w-0 h-px bg-gold group-hover:w-10 transition-all duration-400 delay-100 mb-1" />
-                      <span className="font-heading text-[12px] tracking-[0.18em] uppercase text-[rgba(245,240,232,0.7)]">{name}</span>
-                    </div>
+              <div className="flex flex-col gap-8">
+                <PortofolioCarousel
+                  portofolio={portofolio}
+                  name={name}
+                />
+                <Link
+                  href={igHref}
+                  target="_blank"
+                  className="ml-2 text-[10px] tracking-[0.25em] uppercase font-medium
+                      text-gold border border-gold/40 px-5 py-2.5
+                      hover:bg-gold hover:text-black hover:border-gold
+                      transition-all duration-250"
+                >
+                  <div className="flex flex-row gap-1 w-full items-center justify-end">
+                    <span>View More On Instagram</span>
+                    <RxOpenInNewWindow />
                   </div>
-                ))}
-              </div> */}
+                </Link>
+              </div>
             </div>
 
             <div className="px-12 pt-9 pb-12 flex flex-col max-lg:px-8">
