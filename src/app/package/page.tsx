@@ -25,11 +25,11 @@ export default function Package() {
       {PACKAGES.map(({ name, portofolio, packages, igHref }, index) => (
         <div key={name} id={name} className="border-t border-[rgba(245,240,232,0.06)] last:border-b">
           <div className="flex items-center gap-5 px-14 py-10 border-b border-[rgba(245,240,232,0.04)] max-lg:px-8">
-            <span className="font-heading text-[10px] md:text-[12px] font-light text-gold/40 tracking-[0.08em]">{String(index).padStart(2, "0")}</span>
+            <span className="font-heading text-[14px] md:text-[20px] font-light text-gold/40 tracking-[0.08em]">{String(index + 1).padStart(2, "0")}</span>
             <h2 className="font-heading text-[20px] md:text-[32px] font-light text-[#f5f0e8] tracking-[0.02em]">{name}</h2>
             <div className="flex-1 h-px bg-linear-to-r from-gold/20 to-transparent" />
             <span className="font-heading text-[8px] md:text-xs tracking-[0.2em] uppercase text-gold/50 border border-gold/15 px-2 md:px-2.5 py-1 md:py-1.5">
-              Photography
+              Pixellens
             </span>
           </div>
 
@@ -94,7 +94,7 @@ export default function Package() {
         </div>
       ))}
 
-      <div className="text-center px-10 py-20">
+      <div className="text-center px-10 py-20 mt-10">
         <div className="flex items-center justify-center gap-2.5 mb-5">
           <span className="block w-9 h-px bg-gold opacity-40" />
           <span className="text-gold text-[9px] opacity-60">◆</span>

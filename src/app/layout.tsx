@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Playfair_Display, Raleway } from 'next/font/google'
 import "./globals.css";
 
-import Footer from "@/components/footer";
-import Header from "@/components/header/header";
+import Footer from "@/components/Footer";
+import Header from "@/components/header/Header";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import ToastProvider from "@/components/ToastProvidet";
 
